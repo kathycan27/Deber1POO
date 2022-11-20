@@ -3,25 +3,33 @@ import java.util.Scanner;
 public class Autos {
     String marca;
     String color;
+    String modelo;
     int afabric=0;
     int numerov=0;
     String tipo;
+    Scanner sc=new Scanner(System.in);
     //Metodo
    // Autos autos[]=new Autos[numerov];
-    Autos autos[]=new Autos[numerov];
+    Autos autos[]=new Autos[5];
+    public void auto()
+    {
+        System.out.println("indique el numero de autos a ingresar: ");
+        numerov= Integer.parseInt(sc.next());
+    }
     public void ingresarDatos()
     {
-        Scanner sc=new Scanner(System.in);
-        System.out.println("Ingrese el numero de vehiculos a ingresar: ");
-        numerov=sc.nextInt();
 
-        for(int i=0; i<1; i++)
+
+        for(int i=0; i<numerov; i++)
         {
             System.out.println("---------------Datos Vehiculo "+(i+1)+"---------------");
             autos[i]=new Autos();
             System.out.println("Cual es la marca de su vehiculo: ");
             marca=sc.next();
             autos[i].setMarca(marca);
+            System.out.println("Cual es su modelo de vehiculo: ");
+            modelo=sc.next();
+            autos[i].setModelo(modelo);
             System.out.println("Cual es el color de su vehiculo: ");
             color=sc.next();
             autos[i].setColor(color);
@@ -31,6 +39,7 @@ public class Autos {
             System.out.println("Cual es su tipo de vehiculo: ");
             tipo=sc.next();
             autos[i].setTipo(tipo);
+
 
 
         }
@@ -45,11 +54,11 @@ public class Autos {
             
         }
 
-        for(int j=0; j<5;j++)
+        for(int j=0; j<numerov;j++)
         {
              
-            System.out.println("Vehiculo :"+(j+1));
-            System.out.println("Marca: "+autos[j].getMarca()+" Color: "+autos[j].getColor()+" Año: "+autos[j].getAfabric()+" Tipo: "+autos[j].getTipo());
+            System.out.println(" ----------- Vehiculo "+(j+1)+"-----------");
+            System.out.println("Marca: "+autos[j].getMarca()+"\nModelo: "+autos[j].getModelo()+"\nColor: "+autos[j].getColor()+"\nAño: "+autos[j].getAfabric()+"\nTipo: "+autos[j].getTipo());
         }
     }
 
@@ -94,14 +103,11 @@ public class Autos {
         this.numerov = numerov;
     }
 
+    public String getModelo() {
+        return modelo;
+    }
 
-   /* public String toString() {
-        return "Autos{" +
-                "marca='" + marca + '\'' +
-                ", color='" + color + '\'' +
-                ", afabric=" + afabric +
-                ", tipo='" + tipo + '\'' +
-                ", autos=" + Arrays.toString(autos) +
-                '}';
-    }*/
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
 }
